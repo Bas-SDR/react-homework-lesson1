@@ -1,0 +1,11 @@
+.productsSold {
+    color: green;
+}
+
+.productsBought {
+    color: blue;
+}
+
+.productsStock {
+    color: red;
+}
