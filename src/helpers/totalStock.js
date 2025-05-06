@@ -1,7 +1,7 @@
 import totalBought from "./totalBought.js";
 import totalSold from "./totalSold.js";
 
-function stockTelevisions() {
+function totalStock() {
     return totalBought() - totalSold()}
 
-export default stockTelevisions()
+export default totalStock()

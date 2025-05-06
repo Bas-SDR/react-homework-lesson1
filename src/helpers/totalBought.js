@@ -1,6 +1,6 @@
 import {bestSellingTv, inventory} from "../constants/inventory.js";
 
-function boughtTelevisions() {
+function totalBought() {
     let totalBought = bestSellingTv.originalStock;
     for (let i = 0; i < inventory.length; i++) {
         totalBought = inventory[i].originalStock + totalBought;
@@ -8,4 +8,4 @@ function boughtTelevisions() {
     return totalBought
 }
 
-export default boughtTelevisions
+export default totalBought
