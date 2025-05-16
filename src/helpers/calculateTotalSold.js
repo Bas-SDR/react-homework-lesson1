@@ -1,11 +1,9 @@
-import {bestSellingTv, inventory} from "../constants/inventory.js";
-
-function totalSold() {
-    let totalSold = bestSellingTv.sold;
-    for (let i = 0; i < inventory.length; i++) {
-        totalSold = inventory[i].sold + totalSold;
+function calculateSoldProducts(listTelevisions) {
+    let totalSold = 0;
+    for (let i = 0; i < listTelevisions.length; i++) {
+        totalSold =  listTelevisions[i].sold + totalSold
     }
     return totalSold;
 }
 
-export default totalSold
+export default calculateSoldProducts;

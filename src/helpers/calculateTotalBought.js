@@ -1,9 +1,9 @@
-function totalBought(listTelevisions) {
-    let totalPurchased = 0;
+function calculateTotalBought(listTelevisions) {
+    let totalBought = 0;
     for (let i = 0; i < listTelevisions.length; i++) {
-        totalPurchased = listTelevisions[i].originalStock + totalPurchased;
+        totalBought = listTelevisions[i].originalStock + totalBought;
     }
-    return totalPurchased
+    return totalBought
 }
 
-export default totalBought
+export default calculateTotalBought;

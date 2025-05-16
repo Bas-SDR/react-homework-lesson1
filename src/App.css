@@ -1,11 +1,103 @@
-.productsSold {
+.page-setting {
+    max-width: 1000px;
+    margin: auto;
+    padding: 25px;
+}
+
+.outer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+
+}
+
+.products-sold {
     color: green;
+    border: 1px solid green;
+    background-color: rgba(211, 255, 201, 0.2);
 }
 
-.productsBought {
+.products-bought {
     color: blue;
+    border: 1px solid blue;
+    background-color: rgba(204, 252, 255, 0.2);
 }
 
-.productsStock {
+.products-stock {
     color: red;
+    border: 1px solid red;
+    background-color: rgba(255, 237, 218, 0.2);
+}
+
+.bestSeller {
+    border: dashed;
+    display: flex;
+    justify-content: left;
+    flex-basis: 1500px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    padding: 40px;
+    background-color: rgba(53, 55, 74, 0.1);
+    align-items: center;
+    gap: 40px;
+}
+
+.options-list {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+.options-list img {
+    margin-right: 5px;
+}
+
+.icon {
+    width: 10px;
+}
+
+.dashboard-article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    flex-shrink: 1;
+    flex-grow: 0;
+    padding: 20px;
+    flex-basis: 250px;
+}
+
+.television-image {
+    max-width: 320px;
+    max-height: 250px;
+}
+
+.television-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.television-price {
+    font-size: 30px;
+}
+
+.television-size {
+    display: flex;
+
+}
+
+.regularTv {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 1500px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    padding: 40px;
+    align-items: center;
+    gap: 40px;
 }
