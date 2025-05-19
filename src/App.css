@@ -70,8 +70,10 @@
 }
 
 .television-image {
-    max-width: 320px;
+    max-width: 300px;
     max-height: 250px;
+    display: flex;
+    flex-basis: 300px;
 }
 
 .television-details {
@@ -100,4 +102,5 @@
     padding: 40px;
     align-items: center;
     gap: 40px;
+
 }

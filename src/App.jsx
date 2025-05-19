@@ -7,10 +7,39 @@ import calculateTotalStock from "./helpers/calculateTotalStock.js";
 import createScreenSize from "./helpers/createScreenSize.js";
 import check from "./assets/check.png";
 import minus from "./assets/minus.png";
+import outOfStock from "./assets/out-of-stock.png";
 import {bestSellingTv, inventory} from "./constants/inventory.js";
 
 
 function App() {
+    function sortMostSold() {
+        inventory.sort((a, b) => {
+            return b.sold - a.sold;
+        });
+        console.log(inventory);
+    }
+
+    function sortCheapest() {
+        inventory.sort((a, b) => {
+            return a.price - b.price;
+        });
+        console.log(inventory);
+    }
+
+    function sortRefreshRate() {
+        inventory.sort((a, b) => {
+            return b.refreshRate - a.refreshRate;
+        });
+        console.log(inventory);
+    }
+
+    function sortBiggestScreen() {
+        inventory.sort((a, b) => {
+            return (b.availableSizes[(b.availableSizes.length - 1)] - (a.availableSizes[a.availableSizes.length - 1]))
+        });
+        console.log(inventory);
+    }
+
     return (
         <>
             <main className="page-setting">
@@ -64,7 +93,13 @@ function App() {
                     {inventory.map((tv) => {
                         return (
                             <article className="regularTv" key={tv.type}>
-                                <img src={tv.sourceImg} alt="Regular TV image" className="television-image"/>
+                                {
+                                    (tv.originalStock - tv.sold === 0) ?
+                                        <img src={outOfStock} alt="Regular TV image" className="television-image"/>
+                                        :
+                                        <img src={tv.sourceImg} alt="Regular TV image" className="television-image"/>
+                                }
+
                                 <div className="television-details">
                                     <h3>{createTelevisionName(tv.brand, tv.type, tv.name)}</h3>
                                     <p className="television-price">{createTelevisionPrice(tv.price)}</p>
@@ -72,10 +107,15 @@ function App() {
                                     <ul className="options-list">
                                         {tv.options.map((option) => {
                                             if (option.applicable === true) {
-                                                return (<li key={tv.type}><img src={check} alt="Check icon"
-                                                                               className="icon"/>{option.name}</li>)
-                                            } else return (<li key={tv.type}><img src={minus} alt="Minus icon"
-                                                                                  className="icon"/>{option.name}</li>)
+                                                return (<li key={`${tv.type} + ${option.name}`}><img src={check}
+                                                                                                     alt="Check icon"
+                                                                                                     className="icon"/>{option.name}
+                                                </li>)
+                                            }
+                                            return (<li key={`${tv.type} + ${option.name}`}><img src={minus}
+                                                                                                 alt="Minus icon"
+                                                                                                 className="icon"/>{option.name}
+                                            </li>)
                                         })}
                                     </ul>
                                 </div>
@@ -86,12 +126,17 @@ function App() {
                     </article>
                 </section>
                 <section>
-                    <button type="button" onClick={() => console.log("Meest verkocht eerst")}>Meest verkocht eerst
+                    <button type="button" onClick={sortMostSold}>
+                        Meest verkocht eerst
                     </button>
-                    <button type="button" onClick={() => console.log("Goedkoop eerst")}>Goedkoop eerst</button>
-                    <button type="button" onClick={() => console.log("Meest geschikt voor sport eerst")}>Meest geschikt
-                        voor
-                        sport eerst
+                    <button type="button" onClick={sortCheapest}>
+                        Goedkoop eerst
+                    </button>
+                    <button type="button" onClick={sortRefreshRate}>
+                        Meest geschikt voor sport eerst
+                    </button>
+                    <button type="button" onClick={sortBiggestScreen}>
+                        Grootst beschikbare eerst
                     </button>
                 </section>
             </main>
